@@ -107,17 +107,6 @@ Built multiple MCP servers using **FastMCP** and integrated them with LangChain-
 - 📖 **Advanced RAG theory** — ColBERT MaxSim, SPLADE inverted index, FAISS IVF nprobe tradeoffs
 
 ---
-
-## 📈 GitHub Stats
-
-<div align="center">
-
-![Manishekhar's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Manishekhar001&show_icons=true&theme=github_dark&hide_border=true&count_private=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Manishekhar001&layout=compact&theme=github_dark&hide_border=true)
-
-</div>
-
 ---
 
 <div align="center">
