@@ -18,13 +18,25 @@ I'm a final-year **B.Tech AI student** at Neil Gogte Institute of Technology, Hy
 
 My work lives at the intersection of **RAG architecture**, **LLM orchestration**, and **cloud deployment**. I care about systems that actually run in production: with CI/CD, proper error handling, async design, and real evaluation pipelines.
 
-Currently building **IDOP** — an Intelligent Data Operations Platform with multi-modal query routing (RAG + Text2SQL + document mutation), targeting production deployment in mid-2025.
+Currently building **IDOP** — an Intelligent Data Operations Platform with multi-modal query routing (RAG + Text2SQL + document mutation), targeting production deployment in mid-2026.
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+
+![Manishekhar's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Manishekhar001&show_icons=true&theme=dark&hide_border=true&count_private=true&include_all_commits=true)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Manishekhar001&layout=compact&theme=dark&hide_border=true&langs_count=8)
+
+</div>
 
 ---
 
 ## 🔨 Flagship Projects
 
-### 🧠 CSRAG — Corrective + Self-Reflective RAG with Memory
+### 🧠 [CSRAG](https://github.com/Manishekhar001/CSRAG) — Corrective + Self-Reflective RAG with Memory
 > Production FastAPI + LangGraph pipeline deployed on AWS EC2
 
 The most complete RAG system I've built. Goes well beyond naive retrieval:
@@ -39,7 +51,7 @@ The most complete RAG system I've built. Goes well beyond naive retrieval:
 
 ---
 
-### 📊 BasicRAGProject — Industry-Grade RAG Baseline
+### 📊 [BasicRAGProject](https://github.com/Manishekhar001/BasicRAGProject) — Industry-Grade RAG Baseline
 > End-to-end RAG system with cloud deployment and full observability
 
 Built to production standards from day one — not a notebook, a real deployable service.
@@ -53,7 +65,19 @@ Built to production standards from day one — not a notebook, a real deployable
 
 ---
 
-### 🏗️ IDOP — Intelligent Data Operations Platform *(In Development)*
+### 🗃️ [texttoSqlProject](https://github.com/Manishekhar001/texttoSqlProject) — Text-to-SQL + RAG Hybrid System
+> Natural language query router with dual answering strategies
+
+Routes natural language questions to the right engine automatically:
+- **RAG path** — retrieves from document store for unstructured knowledge queries
+- **Text2SQL path** — generates and validates SQL for structured data queries
+- LLM-as-Judge validation loop to ensure query correctness before execution
+
+**Stack:** FastAPI · LangChain · Python · SQL
+
+---
+
+### 🏗️ [IDOP](https://github.com/Manishekhar001/IDOP) — Intelligent Data Operations Platform *(In Development)*
 > 32-node LangGraph multi-agent system for enterprise data operations
 
 My most ambitious project. A unified platform that routes natural language queries to the right operation:
@@ -71,13 +95,27 @@ Planned: ColBERT late-interaction reranking · RRF score fusion · SPLADE sparse
 
 ---
 
-### 🔌 Custom MCP Servers *(FastMCP)*
+### 🔌 [Expense Tracker MCP](https://github.com/Manishekhar001/Expense_tracker_mcp) — Custom MCP Servers *(FastMCP)*
 > Model Context Protocol servers for tool-augmented LLM workflows
 
 Built multiple MCP servers using **FastMCP** and integrated them with LangChain-based clients:
 - **Expense Tracker MCP** — SQLite-backed tool server for financial tracking
 - **Calculator MCP** — arithmetic tool server with schema-validated inputs
 - Connected to Claude Desktop and custom ReAct agent loops via `langchain-mcp-adapters`
+
+---
+
+### Other Projects
+
+| Project | Description |
+|---|---|
+| [invoice-ocr-backend](https://github.com/Manishekhar001/invoice-ocr-backend) | Backend API for extracting structured data from invoice images using OCR |
+| [n8n_personal_project](https://github.com/Manishekhar001/n8n_personal_project) | Personal note-taking and task manager built with n8n workflow automation |
+| [Expense_tracker_using_claude_code](https://github.com/Manishekhar001/Expense_tracker_using_claude_code) | Full-stack expense tracking web app built with Claude Code |
+| [Corrective-SelfRef-RAG-langchain-](https://github.com/Manishekhar001/Corrective-SelfRef-RAG-langchain-) | Earlier Corrective + Self-Reflective RAG implementation (predecessor to CSRAG) |
+| [ANN_Classification](https://github.com/Manishekhar001/ANN_Classification) | ANN classifier using TensorFlow/Keras |
+| [ANN_Regression](https://github.com/Manishekhar001/ANN_Regression) | ANN regression model using TensorFlow/Keras |
+| [imdb_sentiment_analysis](https://github.com/Manishekhar001/imdb_sentiment_analysis) | Sentiment analysis on IMDB reviews using deep learning |
 
 ---
 
@@ -106,7 +144,6 @@ Built multiple MCP servers using **FastMCP** and integrated them with LangChain-
 - 📖 **Agentic systems from scratch** — ReAct loops, LiteLLM, tool schema design
 - 📖 **Advanced RAG theory** — ColBERT MaxSim, SPLADE inverted index, FAISS IVF nprobe tradeoffs
 
----
 ---
 
 <div align="center">
