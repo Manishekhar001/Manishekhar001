@@ -35,65 +35,43 @@ My work lives at the intersection of **RAG architecture**, **LLM orchestration**
 ## 🔨 Flagship Projects
 
 ### 🏗️ [IDOP](https://github.com/Manishekhar001/IDOP) — Intelligent Data Operations Platform
-> Enterprise-grade data orchestration — NL-to-SQL · Document Mutations · CSRAG
+> Enterprise-grade data orchestration — NL-to-SQL · Document Mutations · CSRAG · **[Live API ↗](http://54.159.245.29/docs)**
 
-My most ambitious and complete system. A unified FastAPI + LangGraph platform that routes any natural language query to the right AI-driven operation via a **5-path semantic router** (SQL / MUTATION / RAG / CHAT / HYBRID), backed by an **18-node LangGraph state machine**.
+My most complete system. A unified FastAPI + LangGraph platform routing any natural language query via a **5-path semantic router** (SQL / MUTATION / RAG / CHAT / HYBRID), backed by an **18-node LangGraph state machine**.
 
 | Feature | What it does |
 |---|---|
 | **NL-to-SQL** | Vanna 2.0 → SQLValidator → LLM Judge → cryptographic approval gate → Supabase execution |
 | **Document Mutations** | Excel/CSV upload → column mapping → business rule validation → LLM audit → all-or-nothing Postgres transaction |
-| **CSRAG** | HyDE → hybrid BM25+dense search (Qdrant) → Voyage AI reranking → CRAG relevance eval → Tavily web fallback → SRAG grounding loops |
+| **CSRAG** | HyDE → hybrid BM25+dense (Qdrant) → Voyage AI reranking → CRAG relevance eval → Tavily web fallback → SRAG grounding loops |
 | **Memory** | AsyncPostgresStore (LTM) + AsyncPostgresSaver (STM) with auto-summarization |
 | **Multi-Level Cache** | Four Redis namespaces + local LRU fallback + S3 document chunk cache with SHA-256 dedup |
-| **Enterprise Security** | Cryptographic single-use approval tokens, CORS hardening, all-or-nothing transaction rollbacks, Opik observability |
 
 **Stack:** FastAPI · LangGraph · LangChain · Qdrant · Vanna 2.0 · Voyage AI · OpenAI · Supabase · Redis · AWS EC2 · Docker · GitHub Actions · Opik
 
 ---
 
-### 🧠 [CSRAG](https://github.com/Manishekhar001/CSRAG) — Corrective + Self-Reflective RAG with Memory
-> Production FastAPI + LangGraph pipeline deployed on AWS EC2
+### 🪵 [log-classification-system](https://github.com/Manishekhar001/log-classification-system) — Multi-Strategy Log Classifier
+> Regex → BERT + Logistic Regression → LLM (Groq) — ~99% accuracy · FastAPI · 10 categories
 
-The foundation for IDOP's RAG subsystem, built and deployed independently:
+A production-grade tiered fallback pipeline for classifying system logs. Each strategy returns a `(label, confidence)` tuple; if one fails it gracefully falls through to the next.
 
-- **Corrective RAG (CRAG):** Evaluates retrieved documents for relevance before generation. Falls back to web search if retrieval quality is low.
-- **Self-Reflective RAG (SRAG):** Uses reflection tokens to decide *when* to retrieve, *what* to retrieve, and *whether* the generated answer is grounded.
-- **Dual Memory:** Long-term (Qdrant vector store) + short-term (conversation buffer) with a self-healing vector store mechanism.
-- **Full CI/CD:** GitHub Actions pipeline with mocked lifespan for integration tests. Deployed to AWS EC2 via Docker.
+- **Stage 1 — Regex:** Exact pattern match (conf=1.0) for deterministic categories (User Action, System Notification)
+- **Stage 2 — BERT + LR:** Sentence Transformers (`all-MiniLM-L6-v2`) embeddings → Logistic Regression; trained on 1,903 logs across 7 categories; ~99% weighted accuracy
+- **Stage 3 — LLM (Groq):** Reserved for LegacyCRM domain-specific logs; LRU-cached to minimize API calls
+- **FastAPI server** — `/classify` and `/classify/batch` endpoints with Pydantic validation
+- **CLI tool** — batch-classify CSV files with `target_label` + `confidence` columns output
 
-**Stack:** FastAPI · LangGraph · LangChain · Qdrant Cloud · Groq API · AWS EC2 · Docker · GitHub Actions
-
----
-
-### 📊 [BasicRAGProject](https://github.com/Manishekhar001/BasicRAGProject) — Industry-Grade RAG Baseline
-> End-to-end RAG system with cloud deployment and full observability
-
-- LCEL pipeline (LangChain Expression Language) for clean, composable retrieval chains
-- **RAGAS evaluation** — automated faithfulness, answer relevancy, and context precision scoring
-- **LangSmith tracing** — full observability into every chain step
-- Deployed to AWS EC2 with GitHub Actions CI/CD and Docker Hub integration
-
-**Stack:** FastAPI · LangChain LCEL · Qdrant Cloud · RAGAS · LangSmith · AWS EC2 · Docker
+**Stack:** Python · FastAPI · Sentence Transformers · scikit-learn · Groq API · Pydantic
 
 ---
 
-### 🗃️ [texttoSqlProject](https://github.com/Manishekhar001/texttoSqlProject) — Text-to-SQL + RAG Hybrid System
-> Natural language query router with dual answering strategies
+### 🔌 [Expense Tracker MCP](https://github.com/Manishekhar001/Expense_tracker_mcp) — Custom MCP Server *(FastMCP)*
+> Model Context Protocol server · ReAct agent integration · Claude Desktop compatible
 
-- **RAG path** — retrieves from document store for unstructured knowledge queries
-- **Text2SQL path** — generates and validates SQL for structured data queries
-- LLM-as-Judge validation loop to ensure query correctness before execution
-
-**Stack:** FastAPI · LangChain · Python · SQL
-
----
-
-### 🔌 [Expense Tracker MCP](https://github.com/Manishekhar001/Expense_tracker_mcp) — Custom MCP Servers *(FastMCP)*
-> Model Context Protocol servers for tool-augmented LLM workflows
-
-- **Expense Tracker MCP** — SQLite-backed tool server for financial tracking
-- Connected to Claude Desktop and custom ReAct agent loops via `langchain-mcp-adapters`
+- SQLite-backed MCP tool server exposing financial tracking operations over the MCP protocol
+- Connected to Claude Desktop and custom ReAct loops via `langchain-mcp-adapters`
+- Demonstrates MCP server design pattern for production LLM tooling
 
 **Stack:** FastMCP · LangChain · Python · SQLite
 
@@ -103,12 +81,12 @@ The foundation for IDOP's RAG subsystem, built and deployed independently:
 
 | Project | Description |
 |---|---|
-| [invoice-ocr-backend](https://github.com/Manishekhar001/invoice-ocr-backend) | Backend API for extracting structured data from invoice images using OCR |
-| [n8n_personal_project](https://github.com/Manishekhar001/n8n_personal_project) | Personal note-taking and task manager built with n8n workflow automation |
-| [Expense_tracker_using_claude_code](https://github.com/Manishekhar001/Expense_tracker_using_claude_code) | Full-stack expense tracking web app built with Claude Code |
-| [Corrective-SelfRef-RAG-langchain-](https://github.com/Manishekhar001/Corrective-SelfRef-RAG-langchain-) | Earlier Corrective + Self-Reflective RAG implementation (predecessor to CSRAG) |
+| [CSRAG](https://github.com/Manishekhar001/CSRAG) | Corrective + Self-Reflective RAG with dual memory — foundation for IDOP's RAG subsystem |
+| [BasicRAGProject](https://github.com/Manishekhar001/BasicRAGProject) | Industry-grade RAG with RAGAS evaluation, LangSmith tracing, AWS EC2 deployment |
+| [texttoSqlProject](https://github.com/Manishekhar001/texttoSqlProject) | NL-to-SQL + RAG hybrid router — foundation for IDOP's SQL subsystem |
+| [invoice-ocr-backend](https://github.com/Manishekhar001/invoice-ocr-backend) | Backend API for structured data extraction from invoice images |
+| [n8n_personal_project](https://github.com/Manishekhar001/n8n_personal_project) | Personal note-taking and task manager with n8n workflow automation |
 | [ANN_Classification](https://github.com/Manishekhar001/ANN_Classification) | ANN classifier using TensorFlow/Keras |
-| [ANN_Regression](https://github.com/Manishekhar001/ANN_Regression) | ANN regression model using TensorFlow/Keras |
 | [imdb_sentiment_analysis](https://github.com/Manishekhar001/imdb_sentiment_analysis) | Sentiment analysis on IMDB reviews using deep learning |
 
 ---
@@ -116,10 +94,10 @@ The foundation for IDOP's RAG subsystem, built and deployed independently:
 ## 🧰 Tech Stack
 
 **AI / ML**
-`LangChain` `LangGraph` `LangSmith` `RAGAS` `Qdrant` `FastMCP` `Groq API` `OpenAI` `Voyage AI` `Vanna 2.0` `Opik`
+`LangChain` `LangGraph` `LangSmith` `RAGAS` `Qdrant` `FastMCP` `Groq API` `OpenAI` `Voyage AI` `Vanna 2.0` `Opik` `Sentence Transformers`
 
 **RAG Techniques**
-`CRAG` `SRAG` `HyDE` `Hybrid Search (BM25 + Dense)` `RRF` `ColBERT` `Cross-Encoder Reranking` `FAISS IVF`
+`CRAG` `SRAG` `HyDE` `Hybrid Search (BM25 + Dense)` `RRF` `ColBERT` `Cross-Encoder Reranking`
 
 **Backend & Data**
 `FastAPI` `Python` `SQL` `Supabase` `PostgreSQL` `Redis` `SQLite`
