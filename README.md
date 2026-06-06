@@ -112,7 +112,6 @@ A production-grade tiered fallback pipeline for classifying system logs. Each st
 
 ## 📚 What I'm Currently Building / Studying
 
-- 📖 **Agentic systems from scratch** — ReAct loops, LiteLLM, tool schema design
 - 📖 **Advanced RAG theory** — ColBERT MaxSim, SPLADE inverted index, FAISS IVF nprobe tradeoffs
 
 ---
