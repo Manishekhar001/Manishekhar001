@@ -47,7 +47,7 @@ My most complete system. A unified FastAPI + LangGraph platform routing any natu
 | **Memory** | AsyncPostgresStore (LTM) + AsyncPostgresSaver (STM) with auto-summarization |
 | **Multi-Level Cache** | Four Redis namespaces + local LRU fallback + S3 document chunk cache with SHA-256 dedup |
 
-**Stack:** FastAPI · LangGraph · LangChain · Qdrant · Vanna 2.0 · Voyage AI · OpenAI · Supabase · Redis · AWS EC2 · Docker · GitHub Actions · Opik
+**Stack:** FastAPI · LangGraph · LangChain · Qdrant · Vanna 2.0 �� Voyage AI · Supabase · Redis · AWS EC2 · Docker · GitHub Actions · Opik
 
 ---
 
@@ -62,7 +62,7 @@ A production-grade tiered fallback pipeline for classifying system logs. Each st
 - **FastAPI server** — `/classify` and `/classify/batch` endpoints with Pydantic validation
 - **CLI tool** — batch-classify CSV files with `target_label` + `confidence` columns output
 
-**Stack:** Python · FastAPI · Sentence Transformers · scikit-learn · Groq API · Pydantic
+**Stack:** Python · FastAPI · BERT · Sentence Transformers · scikit-learn · Pydantic
 
 ---
 
@@ -81,11 +81,11 @@ A production-grade tiered fallback pipeline for classifying system logs. Each st
 
 | Project | Description |
 |---|---|
-| [CSRAG](https://github.com/Manishekhar001/CSRAG) | Corrective + Self-Reflective RAG with dual memory — foundation for IDOP's RAG subsystem |
+| [mini-p](https://github.com/Manishekhar001/mini-p) | Streamlit RAG chatbot with LLM judge — LangGraph routing between document context and general knowledge, FAISS + Nomic embeddings, SQLite persistence, streaming responses |
+| [Corrective-SelfRef-RAG-langchain-](https://github.com/Manishekhar001/Corrective-SelfRef-RAG-langchain-) | Corrective + Self-Reflective RAG with dual memory — foundation for IDOP's RAG subsystem |
 | [BasicRAGProject](https://github.com/Manishekhar001/BasicRAGProject) | Industry-grade RAG with RAGAS evaluation, LangSmith tracing, AWS EC2 deployment |
 | [texttoSqlProject](https://github.com/Manishekhar001/texttoSqlProject) | NL-to-SQL + RAG hybrid router — foundation for IDOP's SQL subsystem |
 | [invoice-ocr-backend](https://github.com/Manishekhar001/invoice-ocr-backend) | Backend API for structured data extraction from invoice images |
-| [n8n_personal_project](https://github.com/Manishekhar001/n8n_personal_project) | Personal note-taking and task manager with n8n workflow automation |
 | [ANN_Classification](https://github.com/Manishekhar001/ANN_Classification) | ANN classifier using TensorFlow/Keras |
 | [imdb_sentiment_analysis](https://github.com/Manishekhar001/imdb_sentiment_analysis) | Sentiment analysis on IMDB reviews using deep learning |
 
@@ -94,7 +94,7 @@ A production-grade tiered fallback pipeline for classifying system logs. Each st
 ## 🧰 Tech Stack
 
 **AI / ML**
-`LangChain` `LangGraph` `LangSmith` `RAGAS` `Qdrant` `FastMCP` `Groq API` `OpenAI` `Voyage AI` `Vanna 2.0` `Opik` `Sentence Transformers`
+`LangChain` `LangGraph` `LangSmith` `RAGAS` `Qdrant` `FastMCP` `Voyage AI` `Vanna 2.0` `Opik` `BERT` `Sentence Transformers`
 
 **RAG Techniques**
 `CRAG` `SRAG` `HyDE` `Hybrid Search (BM25 + Dense)` `RRF` `ColBERT` `Cross-Encoder Reranking`
@@ -103,16 +103,14 @@ A production-grade tiered fallback pipeline for classifying system logs. Each st
 `FastAPI` `Python` `SQL` `Supabase` `PostgreSQL` `Redis` `SQLite`
 
 **Cloud & DevOps**
-`AWS EC2` `AWS S3` `Docker` `Docker Hub` `GitHub Actions (CI/CD)`
-
-**Automation**
-`n8n`
+`AWS EC2` `AWS S3` `Docker` `GitHub Actions (CI/CD)`
 
 ---
 
 ## 📚 What I'm Currently Building / Studying
 
-- 📖 **Advanced RAG theory** — ColBERT MaxSim, SPLADE inverted index, FAISS IVF nprobe tradeoffs
+- 🔌 **Model Context Protocol (MCP)** — building production tool servers with FastMCP, integrating MCP into custom ReAct/LangGraph pipelines
+- 📖 **Advanced RAG theory** — ColBERT MaxSim, SPLADE inverted index, cross-encoder reranking pipelines
 
 ---
 
