@@ -32,52 +32,101 @@ My work lives at the intersection of **RAG architecture**, **LLM orchestration**
 
 ---
 
-## 🔨 Flagship Projects
+## 🚀 Featured Projects
 
-### 🏗️ [IDOP](https://github.com/Manishekhar001/IDOP) — Intelligent Data Operations Platform
-> Enterprise-grade data orchestration — NL-to-SQL · Document Mutations · CSRAG · **[Live API ↗](http://54.159.245.29/docs)**
+> Three production-grade systems that define my engineering approach.
 
-My most complete system. A unified FastAPI + LangGraph platform routing any natural language query via a **5-path semantic router** (SQL / MUTATION / RAG / CHAT / HYBRID), backed by an **18-node LangGraph state machine**.
+---
 
-| Feature | What it does |
+### 🏗️ IDOP — Intelligent Data Operations Platform
+
+<div align="left">
+
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://github.com/Manishekhar001/IDOP)
+[![LangGraph](https://img.shields.io/badge/LangGraph-FF6F00?style=flat-square&logo=python&logoColor=white)](https://github.com/Manishekhar001/IDOP)
+[![Qdrant](https://img.shields.io/badge/Qdrant-DC143C?style=flat-square&logo=databricks&logoColor=white)](https://github.com/Manishekhar001/IDOP)
+[![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)](https://github.com/Manishekhar001/IDOP)
+[![AWS](https://img.shields.io/badge/AWS%20EC2-FF9900?style=flat-square&logo=amazonaws&logoColor=white)](https://github.com/Manishekhar001/IDOP)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)](https://github.com/Manishekhar001/IDOP)
+[![Live](https://img.shields.io/badge/Live%20API-%E2%86%97-brightgreen?style=flat-square)](http://54.159.245.29/docs)
+
+</div>
+
+> Enterprise-grade data orchestration — NL-to-SQL · Document Mutations · Advanced CSRAG
+
+A unified **FastAPI + LangGraph** platform routing any natural language query through a **5-path semantic router** (SQL / MUTATION / RAG / CHAT / HYBRID), backed by an **18-node LangGraph state machine**.
+
+| Capability | Implementation |
 |---|---|
-| **NL-to-SQL** | Vanna 2.0 → SQLValidator → LLM Judge → cryptographic approval gate → Supabase execution |
-| **Document Mutations** | Excel/CSV upload → column mapping → business rule validation → LLM audit → all-or-nothing Postgres transaction |
-| **CSRAG** | HyDE → hybrid BM25+dense (Qdrant) → Voyage AI reranking → CRAG relevance eval → Tavily web fallback → SRAG grounding loops |
+| **NL-to-SQL** | Vanna 2.0 → SQLValidator → LLM Judge → cryptographic approval gate → Supabase |
+| **Document Mutations** | Excel/CSV → column mapping → business rule validation → LLM audit → atomic Postgres transaction |
+| **CSRAG** | HyDE → hybrid BM25+dense (Qdrant) → Voyage AI reranking → CRAG eval → Tavily fallback → SRAG loops |
 | **Memory** | AsyncPostgresStore (LTM) + AsyncPostgresSaver (STM) with auto-summarization |
-| **Multi-Level Cache** | Four Redis namespaces + local LRU fallback + S3 document chunk cache with SHA-256 dedup |
+| **Cache** | 4 Redis namespaces + local LRU + S3 chunk cache with SHA-256 dedup |
 
-**Stack:** FastAPI · LangGraph · LangChain · Qdrant · Vanna 2.0 �� Voyage AI · Supabase · Redis · AWS EC2 · Docker · GitHub Actions · Opik
-
----
-
-### 🪵 [log-classification-system](https://github.com/Manishekhar001/log-classification-system) — Multi-Strategy Log Classifier
-> Regex → BERT + Logistic Regression → LLM (Groq) — ~99% accuracy · FastAPI · 10 categories
-
-A production-grade tiered fallback pipeline for classifying system logs. Each strategy returns a `(label, confidence)` tuple; if one fails it gracefully falls through to the next.
-
-- **Stage 1 — Regex:** Exact pattern match (conf=1.0) for deterministic categories (User Action, System Notification)
-- **Stage 2 — BERT + LR:** Sentence Transformers (`all-MiniLM-L6-v2`) embeddings → Logistic Regression; trained on 1,903 logs across 7 categories; ~99% weighted accuracy
-- **Stage 3 — LLM (Groq):** Reserved for LegacyCRM domain-specific logs; LRU-cached to minimize API calls
-- **FastAPI server** — `/classify` and `/classify/batch` endpoints with Pydantic validation
-- **CLI tool** — batch-classify CSV files with `target_label` + `confidence` columns output
-
-**Stack:** Python · FastAPI · BERT · Sentence Transformers · scikit-learn · Pydantic
+**Full Stack:** `FastAPI` `LangGraph` `LangChain` `Qdrant` `Vanna 2.0` `Voyage AI` `Supabase` `Redis` `AWS EC2` `Docker` `GitHub Actions` `Opik`
 
 ---
 
-### 🔌 [Expense Tracker MCP](https://github.com/Manishekhar001/Expense_tracker_mcp) — Custom MCP Server *(FastMCP)*
-> Model Context Protocol server · ReAct agent integration · Claude Desktop compatible
+### 🪵 Log Classification System
 
-- SQLite-backed MCP tool server exposing financial tracking operations over the MCP protocol
-- Connected to Claude Desktop and custom ReAct loops via `langchain-mcp-adapters`
-- Demonstrates MCP server design pattern for production LLM tooling
+<div align="left">
 
-**Stack:** FastMCP · LangChain · Python · SQLite
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://github.com/Manishekhar001/log-classification-system)
+[![BERT](https://img.shields.io/badge/BERT-FFD700?style=flat-square&logo=python&logoColor=black)](https://github.com/Manishekhar001/log-classification-system)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)](https://github.com/Manishekhar001/log-classification-system)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://github.com/Manishekhar001/log-classification-system)
+[![Accuracy](https://img.shields.io/badge/Accuracy-~99%25-success?style=flat-square)](https://github.com/Manishekhar001/log-classification-system)
+
+</div>
+
+> Multi-strategy tiered pipeline — Regex → BERT → LLM · ~99% accuracy · 10 categories · 2,410 logs
+
+A **production-grade fallback pipeline** for system log classification. Each stage returns a `(label, confidence)` tuple and hands off to the next only when confidence is insufficient.
+
+| Stage | Strategy | Coverage |
+|---|---|---|
+| **Stage 1** | Regex exact-match (conf = 1.0) | User Actions, System Notifications |
+| **Stage 2** | BERT (`all-MiniLM-L6-v2`) + Logistic Regression | 7 categories, ~99% weighted F1 |
+| **Stage 3** | LLM via Groq (LRU-cached) | LegacyCRM domain-specific logs |
+
+- `/classify` and `/classify/batch` FastAPI endpoints with full Pydantic validation
+- CLI tool for batch CSV classification with `target_label` + `confidence` output columns
+- Pre-trained models included — no re-training needed to run
+
+**Stack:** `Python` `FastAPI` `BERT` `Sentence Transformers` `scikit-learn` `Pydantic`
+
+**→ [View Repository](https://github.com/Manishekhar001/log-classification-system)**
 
 ---
 
-### Other Projects
+### 🔌 Expense Tracker MCP
+
+<div align="left">
+
+[![FastMCP](https://img.shields.io/badge/FastMCP-6A0DAD?style=flat-square&logo=python&logoColor=white)](https://github.com/Manishekhar001/Expense_tracker_mcp)
+[![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=chainlink&logoColor=white)](https://github.com/Manishekhar001/Expense_tracker_mcp)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://github.com/Manishekhar001/Expense_tracker_mcp)
+[![MCP](https://img.shields.io/badge/Claude%20Desktop-Compatible-blueviolet?style=flat-square)](https://github.com/Manishekhar001/Expense_tracker_mcp)
+
+</div>
+
+> Custom MCP server built with FastMCP · Claude Desktop compatible · ReAct agent integration
+
+A **Model Context Protocol (MCP) tool server** that exposes financial tracking operations to any MCP-compatible client. Demonstrates how to build structured, schema-driven tool APIs for LLMs.
+
+- **4 tools:** `add_expense`, `list_expenses`, `summarize`, `delete_expense` — all with typed schemas auto-generated from Python type hints
+- **1 resource:** `expense:///categories` — lets the LLM query available categories before acting
+- Connected to **Claude Desktop** and custom **ReAct loops** via `langchain-mcp-adapters`
+- SQLite persistence with `aiosqlite` for async, non-blocking I/O
+
+**Stack:** `FastMCP` `LangChain` `Python` `SQLite` `aiosqlite`
+
+**→ [View Repository](https://github.com/Manishekhar001/Expense_tracker_mcp)**
+
+---
+
+## 📁 Other Projects
 
 | Project | Description |
 |---|---|
