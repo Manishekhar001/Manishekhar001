@@ -23,7 +23,7 @@ My work lives at the intersection of **RAG architecture**, **LLM orchestration**
 
 ## 🚀 Featured Projects
 
-> Three production-grade systems that define my engineering approach.
+> Three systems that define my engineering approach.
 
 ---
 
@@ -57,35 +57,35 @@ A unified **FastAPI + LangGraph** platform routing any natural language query th
 
 ---
 
-### 🪵 Log Classification System
+### 📦 PO Generation Engine
 
 <div align="left">
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://github.com/Manishekhar001/log-classification-system)
-[![BERT](https://img.shields.io/badge/BERT-FFD700?style=flat-square&logo=python&logoColor=black)](https://github.com/Manishekhar001/log-classification-system)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)](https://github.com/Manishekhar001/log-classification-system)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://github.com/Manishekhar001/log-classification-system)
-[![Accuracy](https://img.shields.io/badge/Accuracy-~99%25-success?style=flat-square)](https://github.com/Manishekhar001/log-classification-system)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://github.com/Manishekhar001/PurchaseOrderCreation)
+[![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)](https://github.com/Manishekhar001/PurchaseOrderCreation)
+[![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)](https://github.com/Manishekhar001/PurchaseOrderCreation)
 
 </div>
 
-> Multi-strategy tiered pipeline — Regex → BERT → LLM · ~99% accuracy · 10 categories · 2,410 logs
+> Rule-based purchase order generation for a retail grocery store · Posible POS exports in, per-vendor PO files out
 
-A **production-grade fallback pipeline** for system log classification. Each stage returns a `(label, confidence)` tuple and hands off to the next only when confidence is insufficient.
+A **Python CLI engine** that reads sales, purchase, returns and stock exports from the store's POS and works out which products need reordering and how much. The logic is deliberately explainable: no ML, and every flag carries an action a buyer can check.
 
-| Stage | Strategy | Coverage |
-|---|---|---|
-| **Stage 1** | Regex exact-match (conf = 1.0) | User Actions, System Notifications |
-| **Stage 2** | BERT (`all-MiniLM-L6-v2`) + Logistic Regression | 7 categories, ~99% weighted F1 |
-| **Stage 3** | LLM via Groq (LRU-cached) | LegacyCRM domain-specific logs |
+| Component | What it does |
+|---|---|
+| **Reorder rule** | Reorder when stock < velocity × vendor reorder cycle × 1.2 safety factor; quantity capped at 1.5× the SKU's historical average |
+| **Vendor and cycle discovery** | Primary vendor per SKU from 180-day purchase history; reorder cycle = median gap between a vendor's PO dates |
+| **3-tier flags** | Critical / Warning / Info with prescriptive actions; expired stock is never ordered, dormant items capped at 50% |
+| **Pending-order tracking** | Open orders suppress duplicate suggestions; closed when receipt is detected, expired, or manually cleared |
+| **Outputs** | Per-vendor CSV for POS upload and Excel for human review |
 
-- `/classify` and `/classify/batch` FastAPI endpoints with full Pydantic validation
-- CLI tool for batch CSV classification with `target_label` + `confidence` output columns
-- Pre-trained models included — no re-training needed to run
+- Reorder logic is pure computation with no I/O, which keeps it unit-testable in isolation
+- `pytest` suite covering reorder logic, pending-order lifecycle and data loading
+- Documented limitations: no backtest yet, no seasonality, vendor-level cycles
 
-**Stack:** `Python` `FastAPI` `BERT` `Sentence Transformers` `scikit-learn` `Pydantic`
+**Stack:** `Python` `pandas` `openpyxl` `pytest`
 
-**→ [View Repository](https://github.com/Manishekhar001/log-classification-system)**
+**→ [View Repository](https://github.com/Manishekhar001/PurchaseOrderCreation)**
 
 ---
 
@@ -138,17 +138,10 @@ A **Model Context Protocol (MCP) tool server** that exposes financial tracking o
 `CRAG` `SRAG` `HyDE` `Hybrid Search (BM25 + Dense)` `RRF` `ColBERT` `Cross-Encoder Reranking`
 
 **Backend & Data**
-`FastAPI` `Python` `SQL` `Supabase` `PostgreSQL` `Redis` `SQLite`
+`FastAPI` `Python` `SQL` `pandas` `Supabase` `PostgreSQL` `Redis` `SQLite`
 
 **Cloud & DevOps**
 `AWS EC2` `AWS S3` `Docker` `GitHub Actions (CI/CD)`
-
----
-
-## 📚 What I'm Currently Building / Studying
-
-- 🔌 **Model Context Protocol (MCP)** — building production tool servers with FastMCP, integrating MCP into custom ReAct/LangGraph pipelines
-- 📖 **Advanced RAG theory** — ColBERT MaxSim, SPLADE inverted index, cross-encoder reranking pipelines
 
 ---
 
@@ -156,4 +149,4 @@ A **Model Context Protocol (MCP) tool server** that exposes financial tracking o
 
 *Open to AI/ML Engineering roles. If you're building something serious with LLMs, let's talk.*
 
-</div> 
+</div>
