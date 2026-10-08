@@ -104,7 +104,7 @@ A **Python CLI engine** that reads sales, purchase, returns and stock exports fr
 
 A **Model Context Protocol (MCP) tool server** that exposes financial tracking operations to any MCP-compatible client. Demonstrates how to build structured, schema-driven tool APIs for LLMs.
 
-- **4 tools:** `add_expense`, `list_expenses`, `summarize`, `delete_expense` — all with typed schemas auto-generated from Python type hints
+- **12 tools:** `add_expense`, `list_expenses`, `summarize`, `delete_expense`,`etc` — all with typed schemas auto-generated from Python type hints
 - **1 resource:** `expense:///categories` — lets the LLM query available categories before acting
 - Connected to **Claude Desktop** and custom **ReAct loops** via `langchain-mcp-adapters`
 - SQLite persistence with `aiosqlite` for async, non-blocking I/O
