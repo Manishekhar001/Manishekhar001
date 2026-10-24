@@ -123,9 +123,6 @@ A **Model Context Protocol (MCP) tool server** that exposes financial tracking o
 | [Corrective-SelfRef-RAG-langchain-](https://github.com/Manishekhar001/Corrective-SelfRef-RAG-langchain-) | Corrective + Self-Reflective RAG with dual memory — foundation for IDOP's RAG subsystem |
 | [BasicRAGProject](https://github.com/Manishekhar001/BasicRAGProject) | Industry-grade RAG with RAGAS evaluation, LangSmith tracing, AWS EC2 deployment |
 | [texttoSqlProject](https://github.com/Manishekhar001/texttoSqlProject) | NL-to-SQL + RAG hybrid router — foundation for IDOP's SQL subsystem |
-| [invoice-ocr-backend](https://github.com/Manishekhar001/invoice-ocr-backend) | Backend API for structured data extraction from invoice images |
-| [ANN_Classification](https://github.com/Manishekhar001/ANN_Classification) | ANN classifier using TensorFlow/Keras |
-| [imdb_sentiment_analysis](https://github.com/Manishekhar001/imdb_sentiment_analysis) | Sentiment analysis on IMDB reviews using deep learning |
 
 ---
 
